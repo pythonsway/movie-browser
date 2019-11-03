@@ -2,10 +2,16 @@ import React from 'react';
 import { Button, KeyboardAvoidingView, StyleSheet, TextInput, View } from 'react-native';
 
 export default class SearchForm extends React.Component {
+  // Shorthand for:
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //   }
+  // During compilation also moves other class propeties, like:
+  // this.someThing = () => 
   state = {
     title: '',
     isFormValid: false,
-    page: 1
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -28,10 +34,7 @@ export default class SearchForm extends React.Component {
   }
 
   handleSubmit = () => {
-    this.props.onSubmit(this.state, this.props.page);
-    this.setState({
-      page: this.state.page + 1
-    });
+    this.props.onSubmit(this.state.title);
   }
 
   render() {

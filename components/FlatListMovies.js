@@ -11,7 +11,7 @@ const renderSeparator = () => <View style={styles.separator} />;
 
 
 const FlatListMovies = props => {
-  // inside component in order to access props inr 'Row'
+  // inside component in order to access props in 'Row'
   const renderItem = ({ item }) => <Row {...item} onSelectMovie={props.onSelectMovie} />;
   const renderFooter = () => {
     return (
@@ -34,7 +34,7 @@ const FlatListMovies = props => {
       ItemSeparatorComponent={renderSeparator}
       ListFooterComponent={renderFooter}
       onEndReached={props.onLoadMore}
-      onEndReachedThreshold={50}
+      onEndReachedThreshold={0.5}
     />
   );
 };

@@ -1,20 +1,41 @@
-import {createStore} from 'redux'
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { persistStore, persistReducer } from 'redux-persist';
+// import AsyncStorage from '@react-native-community/async-storage'; ////////////////////////
+import ExpoFileSystemStorage from 'redux-persist-expo-filesystem';
 
-import {addContact} from './actions'
-import reducer from './reducer'
+import reducer from './reducer';
 
-const store = createStore(reducer)
 
-/*
-store.dispatch(updateUser({foo: 'foo'}))
-store.dispatch(updateUser({bar: 'bar'}))
-store.dispatch(updateUser({foo: 'baz'}))
-*/
+const persistConfig = {
+    key: "root",
+    storage: ExpoFileSystemStorage
+};
 
-store.dispatch(addContact({name: 'jordan h', phone: '1234567890'}))
-store.dispatch(addContact({name: 'jordan h', phone: '1234567890'}))
-store.dispatch(addContact({name: 'david m', phone: '5050505050'}))
-
-console.log(store.getState())
-
-export default store
+// const initialState = {
+    //     title: '',
+    //     page: 1,
+    //     movies: null,
+    //     totalResults: 0,
+    //     loading: false,
+    //     error: undefined,
+    // };
+    
+    // const store = createStore(reducer, initialState);
+    // const store = createStore(persistedReducer, applyMiddleware(thunk));
+    
+    /*
+    store.dispatch(updateUser({foo: 'foo'}))
+    store.dispatch(updateUser({bar: 'bar'}))
+    store.dispatch(updateUser({foo: 'baz'}))
+    */
+   
+   // store.dispatch(addContact({name: 'jordan h', phone: '1234567890'}))
+   // store.dispatch(addContact({name: 'jordan h', phone: '1234567890'}))
+   // store.dispatch(addContact({name: 'david m', phone: '5050505050'}))
+  
+   const persistedReducer = persistReducer(persistConfig, reducer);
+   
+   export const store = createStore(persistedReducer, applyMiddleware(thunk));
+   export const persistor = persistStore(store);
+   

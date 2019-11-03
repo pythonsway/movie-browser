@@ -4,27 +4,15 @@ import FlatListMovies from '../components/FlatListMovies';
 import SearchForm from '../components/SearchForm';
 import { Button, Platform, Image, View, Text, StyleSheet, Keyboard } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { connect } from 'react-redux';
 
-export default class HomeScreen extends React.Component {
-  // Shorthand for:
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //   }
-  //// During compilation also moves other class propeties, like:
-  //// this.someThing = () =>
+import { updateTitle, updateMovies, updatePage, stateS } from '../redux/actions';
 
-  state = {
-    page: 1,
-    movies: null,
-    totalResults: 0,
-    loading: false,
-    error: undefined
-  };
 
+class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     // 'navigation.getParam' or 'navigation.state.params'
-    const params = navigation.state.params || {};
+    // const params = navigation.state.params || {};
 
     return {
       // 'headerTitle'- property specific to a stack navigator, defaults to a '<Text>' component that displays the 'title'
@@ -41,42 +29,18 @@ export default class HomeScreen extends React.Component {
     };
   };
 
-  handleSubmit = async (formState, page) => {
+  handleSubmit = (formTitle) => {
     Keyboard.dismiss();
-    const movies = await fetchMovies(formState, page);
-    // ????????????????????????????????????????????
-    // Async/await parsing json 
-    // if (movies.Response)
-    if (movies.Response === 'True') {
-      console.log(this.state.error);
-      this.setState((prevState, props) => {
-        return {
-          count: prevState.count + 1,
-          movies: movies.Search,
-          totalResults: movies.totalResults,
-          error: undefined
-        };
-      });
-    } else {
-      console.log(movies.Error);
-      this.setState({
-        movies: null,
-        totalResults: 0,
-        error: movies.Error
-      });
-    }
+    console.log(`1 ${this.props.title} ${this.props.page}`);
+    this.props.updateTitle(formTitle);
+    // this.props.updateMovies(formTitle, this.props.page);
+    console.log(`3 ${this.props.title} ${this.props.page}`);
   }
 
-  handleLoadMore = async (formState, page) => {
-    const movies = await fetchMovies(formState, page);
-    if (movies.Response === 'True') {
-      console.log('more');
-      this.setState((prevState, props) => {
-        return {
-          count: prevState.count + 1,
-          movies: [...prevState.movies, ...movies.Search],
-        };
-      });
+  handleLoadMore = () => {
+    if (this.props.totalResults > 10) {
+      this.props.updatePage();
+      // this.props.updateMovies(this.props.title, this.props.page);
     }
   }
 
@@ -88,38 +52,28 @@ export default class HomeScreen extends React.Component {
     // debugger;
   }
 
-  handleScroll = () => {
-    if (this.state.totalResults > 10) {
-
-    }
-
-    this.setState({
-      page: this.state.page + 1
-    }, () => {
-      this.fetchRecords(this.state.page);
-    });
-  }
-
   render() {
     return (
       <View style={styles.container}>
         <View>
-          <Text style={styles.heading}>Search for movies</Text>
-          <Button title="more" onPress={() => this.handleLoadMore({title: 'pie'}, 2)}/>
+        <Button title="stateS" onPress={this.props.stateS}/>
 
+
+          <Text style={styles.heading}>Search for movies</Text>
           <SearchForm
             onSubmit={this.handleSubmit}
-            page={this.state.page}
           />
-          <Text style={styles.error}>{this.state.error}</Text>
+          <Text style={styles.error}>{this.props.error}</Text>
         </View>
-        {this.state.movies && (
+        {(this.props.title.length != '') && (
           <View style={styles.results}>
-            <Text style={styles.info}>{`Found ${this.state.totalResults} results:`}</Text>
+            {!this.props.loading && (
+              <Text style={styles.info}>{`Found ${this.props.totalResults} results:`}</Text>
+            )}
             <FlatListMovies
               style={styles.resultsList}
-              movies={this.state.movies}
-              loading={this.state.loading}
+              movies={this.props.movies}
+              loading={this.props.loading}
               onSelectMovie={this.handleSelectMovie}
               onLoadMore={this.handleLoadMore}
             />
@@ -145,7 +99,7 @@ const styles = StyleSheet.create({
   },
   results: {
     flex: 1,
-    
+
   },
   resultsList: {
     flex: 1,
@@ -164,3 +118,22 @@ const styles = StyleSheet.create({
     marginRight: 20
   }
 });
+
+
+const mapStateToProps = state => ({
+  title: state.movies.title,
+  page: state.movies.page,
+  movies: state.movies.movies,
+  totalResults: state.movies.totalResults,
+  loading: state.movies.loading,
+  error: state.movies.error,
+});
+
+const mapDispatchToProps = {
+  updateTitle,
+  updateMovies,
+  updatePage,
+  stateS
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

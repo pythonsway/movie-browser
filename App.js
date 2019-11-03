@@ -1,11 +1,22 @@
 import React from 'react';
 import { Button, Platform, Image, View, Text } from 'react-native';
 import AppContainer from './navigation/AppNavigator.js';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { SplashScreen } from 'expo';
 
+
+import {store, persistor} from './redux/store';
 
 export default class App extends React.Component {
   render() {
-    return <AppContainer />;
+    return (
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <AppContainer />
+        </PersistGate>
+      </Provider>
+    );
   }
 }
 

@@ -1,16 +1,24 @@
 import React from 'react';
 import { Button, Platform, Image, View, Text, ScrollView, StyleSheet } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
+import ShareButton from '../components/ShareButton';
 import DetailsRow from '../components/DetailsRow';
 
 export default class DetailsScreen extends React.Component {
   static navigationOptions = ({ navigation, navigationOptions }) => {
-    const { params } = navigation.state;
-    console.log(`1 ${Object.keys(params)}`);
+    // const { params } = navigation.state;
+    // console.log(`1 ${Object.keys(params)}`);
 
     return {
-      // headerTitle: params ? params.movie.Title : 'Movie details',
+      // headerTitle: params ? params.Title : 'Movie details',
       headerTitle: `"${navigation.getParam('Title')}"`,
+      headerRight: () => (
+        <ShareButton
+          title={navigation.getParam('Title')}
+          year={navigation.getParam('Year')}
+        />
+      ),
     };
   };
 
