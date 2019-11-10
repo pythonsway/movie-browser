@@ -3,7 +3,7 @@
     "name": "Movie Browser",
     "slug": "movie-browser",
     "description": "View information about any movies.",
-    "owner": "Python's way",
+    "owner": "pythonsway",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -29,7 +29,8 @@
     ],
     "ios": {
       "bundleIdentifier": "it.pythonsway.moviebrowser",
-      "supportsTablet": true
+      "supportsTablet": true,
+      "icon": "./assets/icon_ios.png"
     },
     "android": {
       "package": "it.pythonsway.moviebrowser"
