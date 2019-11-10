@@ -1,0 +1,41 @@
+{
+  "background_color": "#ffa500",
+  "description": "View information about any movies.",
+  "dir": "auto",
+  "display": "standalone",
+  "lang": "en",
+  "name": "Movie Browser",
+  "orientation": "portrait",
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "itunes",
+      "id": "it.pythonsway.moviebrowser"
+    },
+    {
+      "platform": "play",
+      "url": "http://play.google.com/store/apps/details?id=it.pythonsway.moviebrowser",
+      "id": "it.pythonsway.moviebrowser"
+    }
+  ],
+  "short_name": "Movie Browser",
+  "start_url": ".",
+  "theme_color": "#ffa500",
+  "icons": [
+    {
+      "src": "/apple/icons/icon_180x180.02f817c5a57ab34b61e21b81e427c6cc.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple/icons/icon_192x192.ef8bd1ca4033b92972ea67ed81b40440.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple/icons/icon_512x512.f87e694945fe39c0b21f1d6d752318fc.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
