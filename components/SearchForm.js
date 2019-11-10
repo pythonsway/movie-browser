@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, KeyboardAvoidingView, StyleSheet, TextInput, View } from 'react-native';
+import { Button, KeyboardAvoidingView, StyleSheet, TextInput } from 'react-native';
+
 
 export default class SearchForm extends React.Component {
   // Shorthand for:
@@ -46,7 +47,7 @@ export default class SearchForm extends React.Component {
           value={this.state.title}
           onChangeText={this.handleTitleChange}
           placeholder="Movie title"
-          autoCapitalize="words"
+          autoCapitalize="none"
           clearButtonMode="always"
         />
         <Button title="Search" onPress={this.handleSubmit} disabled={!this.state.isFormValid} />

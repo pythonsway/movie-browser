@@ -3,6 +3,7 @@
     "name": "Movie Browser",
     "slug": "movie-browser",
     "description": "View information about any movies.",
+    "owner": "Python's way",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -11,7 +12,9 @@
       "web"
     ],
     "version": "1.0.0",
+    "githubUrl": "https://github.com/pythonsway/movie-browser",
     "orientation": "portrait",
+    "primaryColor": "#ffa500",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
@@ -25,7 +28,11 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "it.pythonsway.moviebrowser",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "it.pythonsway.moviebrowser"
     }
   }
 }

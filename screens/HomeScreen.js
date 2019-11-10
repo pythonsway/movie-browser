@@ -1,19 +1,18 @@
 import React from 'react';
-import { fetchMovies, fetchMovieDetails } from '../api/api';
-import FlatListMovies from '../components/FlatListMovies';
-import SearchForm from '../components/SearchForm';
-import { Button, Platform, Image, View, Text, StyleSheet, Keyboard } from 'react-native';
+import { Keyboard, Platform, StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 
-import { updateTitle, updateMovies, updatePage, stateS } from '../redux/actions';
+import { fetchMovieDetails } from '../api/api';
+import { updateTitle, updateMovies, updatePage } from '../redux/actions';
+import FlatListMovies from '../components/FlatListMovies';
+import SearchForm from '../components/SearchForm';
 
 
 class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     // 'navigation.getParam' or 'navigation.state.params'
     // const params = navigation.state.params || {};
-
     return {
       // 'headerTitle'- property specific to a stack navigator, defaults to a '<Text>' component that displays the 'title'
       headerTitle: 'Movie Browser',
@@ -31,24 +30,18 @@ class HomeScreen extends React.Component {
 
   handleSubmit = (formTitle) => {
     Keyboard.dismiss();
-    console.log(`1 ${this.props.title} ${this.props.page}`);
     this.props.updateTitle(formTitle);
-    // this.props.updateMovies(formTitle, this.props.page);
-    console.log(`3 ${this.props.title} ${this.props.page}`);
   }
 
   handleLoadMore = () => {
     if (this.props.totalResults > 10) {
       this.props.updatePage();
-      // this.props.updateMovies(this.props.title, this.props.page);
     }
   }
 
   handleSelectMovie = async movie => {
     const movieDetails = await fetchMovieDetails(movie.imdbID);
-    console.log(movieDetails);
     this.props.navigation.push('Details', movieDetails);
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!
     // debugger;
   }
 
@@ -56,23 +49,21 @@ class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View>
-        <Button title="stateS" onPress={this.props.stateS}/>
-
-
           <Text style={styles.heading}>Search for movies</Text>
           <SearchForm
             onSubmit={this.handleSubmit}
           />
-          <Text style={styles.error}>{this.props.error}</Text>
+          {this.props.error && (
+            <Text style={styles.error}>{`"${this.props.title}": ${this.props.error}`}</Text>
+          )}
         </View>
-        {(this.props.title.length != '') && (
+        {(this.props.totalResults > 0) && (
           <View style={styles.results}>
-            {!this.props.loading && (
-              <Text style={styles.info}>{`Found ${this.props.totalResults} results:`}</Text>
-            )}
+            <Text style={styles.info}>{`Found ${this.props.totalResults} results for "${this.props.title}":`}</Text>
             <FlatListMovies
               style={styles.resultsList}
               movies={this.props.movies}
+              totalResults={this.props.totalResults}
               loading={this.props.loading}
               onSelectMovie={this.handleSelectMovie}
               onLoadMore={this.handleLoadMore}
@@ -80,7 +71,6 @@ class HomeScreen extends React.Component {
           </View>
         )}
       </View>
-
     );
   }
 }
@@ -103,10 +93,12 @@ const styles = StyleSheet.create({
   },
   resultsList: {
     flex: 1,
+    marginTop: 10,
   },
   error: {
     margin: 5,
     fontSize: 16,
+    textAlign: 'center',
     color: 'red'
   },
   info: {
@@ -118,7 +110,6 @@ const styles = StyleSheet.create({
     marginRight: 20
   }
 });
-
 
 const mapStateToProps = state => ({
   title: state.movies.title,
@@ -133,7 +124,6 @@ const mapDispatchToProps = {
   updateTitle,
   updateMovies,
   updatePage,
-  stateS
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

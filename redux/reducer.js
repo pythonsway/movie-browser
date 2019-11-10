@@ -1,27 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { UPDATE_TITLE, UPDATE_PAGE, REQUEST_SENT, FETCH_TRUE, FETCH_FALSE, FETCH_ERROR, STATES } from './actions';
+import { FETCH_ERROR, FETCH_FALSE, FETCH_TRUE, UPDATE_PAGE, REQUEST_SENT, UPDATE_TITLE } from './actions';
+
 
 // if object spread not supported in Node:
-const merge = (prev, next) => Object.assign({}, prev, next);
+// const merge = (prev, next) => Object.assign({}, prev, next);
 //    merge(state, action.payload);
-
-
-// const contactReducer = (state = [], action) => {
-//   if (action.type === UPDATE_CONTACT) return [...state, action.payload]
-//   return state
-// }
-
-// const userReducer = (state = {}, action) => {
-//   switch (action.type) {
-//     case UPDATE_USER:
-//       return merge(state, action.payload)
-//     case UPDATE_CONTACT:
-//       return merge(state, {prevContact: action.payload})
-//     default:
-//       return state
-//   }
-// }
 
 const initialState = {
   title: '',
@@ -32,20 +16,8 @@ const initialState = {
   error: undefined,
 };
 
-// const formReducer = (state = {}, action) => {
-//   switch (action.type) {
-//     case UPDATE_PAGE:
-//       return { ...state, page: state.page + 1 };
-//     default:
-//       return state
-//   }
-// };
-
 const moviesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case STATES:
-      console.log(state);
-      return state;
     case UPDATE_TITLE:
       return {
         ...state,
@@ -72,11 +44,11 @@ const moviesReducer = (state = initialState, action) => {
         error: undefined
       };
     case FETCH_FALSE:
-      if (state.totalResults > 1) {
+      if (state.page > 1) {
         return {
           ...state,
           loading: false,
-          error: 'No more results'
+          // error: 'No more results'
         };
       } else {
         return {
@@ -99,21 +71,7 @@ const moviesReducer = (state = initialState, action) => {
   }
 };
 
-const userReducer = (state = {}, action) => {
-  switch (action.type) {
-    case UPDATE_USER:
-      return merge(state, action.payload)
-    case UPDATE_CONTACT:
-      return merge(state, { prevContact: action.payload })
-    case LOG_IN_FULFILLED:
-      return merge(state, { token: action.payload })
-    case LOG_IN_REJECTED:
-      return merge(state, { loginErr: action.payload })
-    default:
-      return state
-  }
-};
-
+// for future split of reducers
 const reducer = combineReducers({
   movies: moviesReducer,
 });

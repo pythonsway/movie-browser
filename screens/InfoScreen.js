@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button, Platform, Image, View, Text, Linking, StyleSheet } from 'react-native';
+import { Button, Linking, StyleSheet, Text, View } from 'react-native';
 
 
 export default class InfoScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>by Python's Way</Text>
+        <Text style={styles.text}>by Python's way</Text>
         <Text style={styles.link}
           onPress={() => Linking.openURL('https://pythonsway.it/')}>
           https://pythonsway.it
@@ -19,7 +19,6 @@ export default class InfoScreen extends React.Component {
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   container: {

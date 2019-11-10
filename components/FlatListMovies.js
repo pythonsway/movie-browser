@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, ActivityIndicator, StyleSheet } from 'react-native';
+import { ActivityIndicator, Dimensions, FlatList, StyleSheet, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import Row from './Row';
@@ -20,39 +20,47 @@ const FlatListMovies = props => {
           size="large"
           animating={props.loading ? true : false}
         />
+        {(props.movies.length == props.totalResults) && (
+          <Text>No more results</Text>
+        )}
+
       </View>
     );
   };
 
   return (
-    <FlatList
-      renderItem={renderItem}
-      data={props.movies}
-      // keyExtractor={item => item.imdbID} />
-      keyExtractor={keyExtractor}
-
-      ItemSeparatorComponent={renderSeparator}
-      ListFooterComponent={renderFooter}
-      onEndReached={props.onLoadMore}
-      onEndReachedThreshold={0.5}
-    />
+    <View style={styles.container}>
+      <FlatList
+        renderItem={renderItem}
+        data={props.movies}
+        // keyExtractor={item => item.imdbID} />
+        keyExtractor={keyExtractor}
+        ItemSeparatorComponent={renderSeparator}
+        ListFooterComponent={renderFooter}
+        onEndReached={props.onLoadMore}
+        onEndReachedThreshold={0.5}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flexBasis: (Dimensions.get('window').height / 2),
+    width: (Dimensions.get('window').width * 0.95)
+  },
   separator: {
-    height: 1,
-    width: "85%",
+    height: 2,
     backgroundColor: "#CED0CE",
-    marginLeft: "15%"
+    // width: "95%",
+    // marginLeft: "5%"
   },
   footer: {
     paddingVertical: 20,
-    borderTopWidth: 1,
+    borderTopWidth: 2,
     borderColor: "#CED0CE"
   }
 });
-
 
 FlatListMovies.propTypes = {
   movies: PropTypes.array,

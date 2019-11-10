@@ -1,13 +1,5 @@
-//   {
-//       "Title": "American Pie",
-//       "Year": "1999",
-//       "imdbID": "tt0163651",
-//       "Type": "movie",
-//       "Poster": "https://m.media-amazon.com/images/M/MV5BMTg3ODY5ODI1NF5BMl5BanBnXkFtZTgwMTkxNTYxMTE@._V1_SX300.jpg"
-//   },
-
 import React from 'react';
-import { TouchableOpacity, StyleSheet, Text, Image, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 
@@ -17,8 +9,10 @@ const Row = props => (
       style={styles.image}
       source={(props.Poster == 'N/A') ? require('../assets/defaultImage.jpg') : { uri: props.Poster }}
     />
-    <Text>{props.Title}</Text>
-    <Text>{` (${props.Year})`}</Text>
+    <View style={styles.title}>
+      <Text>{props.Title}</Text>
+      <Text>{`(${props.Year})`}</Text>
+    </View>
   </TouchableOpacity>
 );
 
@@ -35,6 +29,9 @@ const styles = StyleSheet.create({
     width: 34,
     height: 50,
     marginRight: 10
+  },
+  title: {
+    flex: 1
   }
 });
 

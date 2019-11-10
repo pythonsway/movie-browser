@@ -12,6 +12,5 @@ export const fetchMovieDetails = async (movieID) => {
   const ReqUrl = `https://omdbapi.com/?apikey=41e9e2dd&i=${movieID}&plot=full`;
   const response = await fetch(ReqUrl);
   const movieDetails = await response.json();
-  console.log(movieDetails);
   return movieDetails;
 };

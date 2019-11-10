@@ -1,6 +1,7 @@
 import React from 'react';
-import { Share, Button, StyleSheet } from 'react-native';
+import { Share, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+
 
 class ShareButton extends React.Component {
   onShare = async () => {
@@ -29,11 +30,7 @@ class ShareButton extends React.Component {
     }
   };
 
-
-
-
   render() {
-    console.log(this.props.title);
     return (
       <Ionicons
         style={styles.icon}
