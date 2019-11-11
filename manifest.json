@@ -23,18 +23,78 @@
   "theme_color": "#ffa500",
   "icons": [
     {
-      "src": "/apple/icons/icon_180x180.02f817c5a57ab34b61e21b81e427c6cc.png",
+      "src": "/movie-browser/apple/splash/icon_1125x2436.c6f22742e2c9eedf8204eb05eabd22d5.png",
+      "sizes": "1125x2436",
+      "type": "image/png"
+    },
+    {
+      "src": "/movie-browser/apple/splash/icon_1136x640.0feb8df16053164a5598a6764bcbca34.png",
+      "sizes": "1136x640",
+      "type": "image/png"
+    },
+    {
+      "src": "/movie-browser/apple/splash/icon_1242x2208.6e795dbef8f1e32b75e6f0ceaa8c5e2a.png",
+      "sizes": "1242x2208",
+      "type": "image/png"
+    },
+    {
+      "src": "/movie-browser/apple/splash/icon_1242x2688.a7f0813105e86ace4a24872cfba9d172.png",
+      "sizes": "1242x2688",
+      "type": "image/png"
+    },
+    {
+      "src": "/movie-browser/apple/splash/icon_1334x750.23aa53c3fda1bb431be98f2a4629ad1a.png",
+      "sizes": "1334x750",
+      "type": "image/png"
+    },
+    {
+      "src": "/movie-browser/apple/splash/icon_1792x828.7d22b9ce1cbd7fb31fb67f3051801838.png",
+      "sizes": "1792x828",
+      "type": "image/png"
+    },
+    {
+      "src": "/movie-browser/apple/icons/icon_180x180.02f817c5a57ab34b61e21b81e427c6cc.png",
       "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "/apple/icons/icon_192x192.ef8bd1ca4033b92972ea67ed81b40440.png",
+      "src": "/movie-browser/apple/icons/icon_192x192.ef8bd1ca4033b92972ea67ed81b40440.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/apple/icons/icon_512x512.f87e694945fe39c0b21f1d6d752318fc.png",
+      "src": "/movie-browser/apple/splash/icon_2208x1242.9b5c5c63b5af1b858bcf23bf8e10bc69.png",
+      "sizes": "2208x1242",
+      "type": "image/png"
+    },
+    {
+      "src": "/movie-browser/apple/splash/icon_2436x1125.0cefe9cd5180f9a670e93126cb81d38f.png",
+      "sizes": "2436x1125",
+      "type": "image/png"
+    },
+    {
+      "src": "/movie-browser/apple/splash/icon_2688x1242.66a04ee731d161e229ef123249bf6c6f.png",
+      "sizes": "2688x1242",
+      "type": "image/png"
+    },
+    {
+      "src": "/movie-browser/apple/icons/icon_512x512.f87e694945fe39c0b21f1d6d752318fc.png",
       "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/movie-browser/apple/splash/icon_640x1136.6aa0660afae07ab014766466c1361dc0.png",
+      "sizes": "640x1136",
+      "type": "image/png"
+    },
+    {
+      "src": "/movie-browser/apple/splash/icon_750x1334.2b1dca16fde11a1be57572d6af76cc06.png",
+      "sizes": "750x1334",
+      "type": "image/png"
+    },
+    {
+      "src": "/movie-browser/apple/splash/icon_828x1792.2025d621f430405b291a02c1527f8a08.png",
+      "sizes": "828x1792",
       "type": "image/png"
     }
   ]
