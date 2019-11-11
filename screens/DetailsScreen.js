@@ -99,5 +99,8 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: 'bold',
     alignSelf: 'center',
+  },
+  rows: {
+    flex: 1,
   }
 });

@@ -28,6 +28,7 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@expo/webpack-config": "^0.9.0",
     "babel-preset-expo": "^7.0.0",
     "eslint": "^6.5.1",
     "eslint-plugin-react": "^7.16.0"
