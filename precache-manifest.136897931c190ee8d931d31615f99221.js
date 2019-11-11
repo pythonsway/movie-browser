@@ -28,16 +28,16 @@ self.__precacheManifest = [
     "url": "/movie-browser/static/js/runtime~app.cd03fac1.js"
   },
   {
-    "revision": "7a7bc7ead25db795e58b336f04d2624c",
-    "url": "/movie-browser/favicon.ico"
-  },
-  {
-    "revision": "3ea7f934bfbd81c3f2edaac6a2d57abf",
-    "url": "/movie-browser/static/js/2.9f2a79ba.chunk.js.gz"
-  },
-  {
     "revision": "d0c694b562b2208635f250762cd7fc79",
     "url": "/movie-browser/serve.json"
+  },
+  {
+    "revision": "987a3113fbd15fab01e08cd7c83eba94",
+    "url": "/movie-browser/static/js/2.da34c137.chunk.js.gz"
+  },
+  {
+    "revision": "f021961c36a8db90ccd349b754b0d6bc",
+    "url": "/movie-browser/favicon.ico"
   },
   {
     "revision": "b06871f281fee6b241d60582ae9369b9",
@@ -48,8 +48,8 @@ self.__precacheManifest = [
     "url": "/movie-browser/./fonts/FontAwesome5_Solid.ttf"
   },
   {
-    "revision": "67b1235b79b2a3c7fc875cf686edef82",
-    "url": "/movie-browser/expo-service-worker.js.gz"
+    "revision": "7340eab8fb0d24587532",
+    "url": "/movie-browser/static/js/2.da34c137.chunk.js"
   },
   {
     "revision": "5a293a273bee8d740a045d9922b9a9ae",
@@ -64,8 +64,8 @@ self.__precacheManifest = [
     "url": "/movie-browser/./fonts/SimpleLineIcons.ttf"
   },
   {
-    "revision": "53f52547c3f31f71bb17",
-    "url": "/movie-browser/static/js/2.9f2a79ba.chunk.js"
+    "revision": "67b1235b79b2a3c7fc875cf686edef82",
+    "url": "/movie-browser/expo-service-worker.js.gz"
   },
   {
     "revision": "c6aef942e3668158ec29d4adcb2e768f",
@@ -80,7 +80,7 @@ self.__precacheManifest = [
     "url": "/movie-browser/manifest.json"
   },
   {
-    "revision": "bb1fa39848450b09b0f57818438e8a57",
+    "revision": "3df42f82491b64f90061aca68b17018b",
     "url": "/movie-browser/index.html"
   },
   {
