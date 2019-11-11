@@ -28,16 +28,16 @@ self.__precacheManifest = [
     "url": "/movie-browser/static/js/runtime~app.cd03fac1.js"
   },
   {
-    "revision": "d0c694b562b2208635f250762cd7fc79",
-    "url": "/movie-browser/serve.json"
-  },
-  {
-    "revision": "987a3113fbd15fab01e08cd7c83eba94",
-    "url": "/movie-browser/static/js/2.da34c137.chunk.js.gz"
-  },
-  {
     "revision": "f021961c36a8db90ccd349b754b0d6bc",
     "url": "/movie-browser/favicon.ico"
+  },
+  {
+    "revision": "3ea7f934bfbd81c3f2edaac6a2d57abf",
+    "url": "/movie-browser/static/js/2.9f2a79ba.chunk.js.gz"
+  },
+  {
+    "revision": "d0c694b562b2208635f250762cd7fc79",
+    "url": "/movie-browser/serve.json"
   },
   {
     "revision": "b06871f281fee6b241d60582ae9369b9",
@@ -48,8 +48,8 @@ self.__precacheManifest = [
     "url": "/movie-browser/./fonts/FontAwesome5_Solid.ttf"
   },
   {
-    "revision": "7340eab8fb0d24587532",
-    "url": "/movie-browser/static/js/2.da34c137.chunk.js"
+    "revision": "53f52547c3f31f71bb17",
+    "url": "/movie-browser/static/js/2.9f2a79ba.chunk.js"
   },
   {
     "revision": "5a293a273bee8d740a045d9922b9a9ae",
@@ -80,7 +80,7 @@ self.__precacheManifest = [
     "url": "/movie-browser/manifest.json"
   },
   {
-    "revision": "3df42f82491b64f90061aca68b17018b",
+    "revision": "93a9e291da4a950d625c4f96726eff28",
     "url": "/movie-browser/index.html"
   },
   {
